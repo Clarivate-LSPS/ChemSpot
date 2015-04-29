@@ -34,7 +34,7 @@ object jochem2automat extends App {
 
   if (args.length != 4) {
     println("Usage: jochem2automat jochem.ontology output.automat output.ids numberOfThreads")
-    exit(-1)
+    sys.exit(-1)
   }
 
   val start = System.currentTimeMillis()

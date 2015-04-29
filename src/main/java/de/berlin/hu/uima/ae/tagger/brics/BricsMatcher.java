@@ -14,11 +14,7 @@ package de.berlin.hu.uima.ae.tagger.brics;
 
 import de.berlin.hu.chemspot.Mention;
 import de.berlin.hu.uima.ae.normalizer.Normalizer;
-import dk.brics.automaton.Automaton;
-import dk.brics.automaton.AutomatonMatcher;
-import dk.brics.automaton.RunAutomaton;
-import dk.brics.automaton.State;
-import dk.brics.automaton.StringUnionOperations;
+import dk.brics.automaton.*;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -72,7 +68,8 @@ public class BricsMatcher {
 	        Enumeration<? extends ZipEntry> entries = zipFile.entries();
 	        while (entries.hasMoreElements()) {
 	            ZipEntry entry = entries.nextElement();
-	            matchers.add(RunAutomaton.load(zipFile.getInputStream(entry)));
+				RunAutomaton automaton = RunAutomaton.load(zipFile.getInputStream(entry));
+				matchers.add(automaton);
 	        }
     	} else {
     		 matchers.add(RunAutomaton.load(new FileInputStream(pathToZippedBinaries)));

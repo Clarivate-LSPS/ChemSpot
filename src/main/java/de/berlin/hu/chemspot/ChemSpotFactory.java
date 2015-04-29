@@ -67,4 +67,8 @@ public class ChemSpotFactory {
 	public static ChemSpot createChemSpot(String pathToDictionary, String pathToIds, String pathToEumedModel, String pathToSentenceModel, String pathToCRFModel) {
 		return new ChemSpot(pathToCRFModel, pathToDictionary, pathToSentenceModel, pathToIds, pathToEumedModel);
 	}
+
+	public static void main(String[] args) {
+		ChemSpot chemSpot = ChemSpotFactory.createChemSpot();
+	}
 }

@@ -20,9 +20,9 @@
 			<destName>crf_model.bin</destName>
 		</file>
 		<file>
-			<source>${project.basedir}/README</source>
+			<source>${project.basedir}/README.md</source>
 			<outputDirectory></outputDirectory>
-			<destName>README</destName>
+			<destName>README.md</destName>
 		</file>
 		<file>
 			<source>${project.basedir}/LICENSE</source>
@@ -35,7 +35,7 @@
 			<destName>CHANGELOG</destName>
 		</file>
 		<file>
-			<source>${project.basedir}/src/main/scala/de/berlin/hu/evaluation/eval.scala</source>
+			<source>${project.basedir}/src/main/scala-script/eval.scala</source>
 			<outputDirectory></outputDirectory>
 			<destName>eval.scala</destName>
 		</file>
