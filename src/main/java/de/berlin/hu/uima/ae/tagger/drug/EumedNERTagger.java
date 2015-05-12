@@ -77,7 +77,7 @@ public class EumedNERTagger extends JCasAnnotator_ImplBase {
 			synchronized(System.out) {
 				PrintStream out = System.out;
 				System.setOut(new PrintStream(new NullOutputStream()));
-				
+
 				tagger.process(simplexDoc);
 				
 				System.setOut(out);

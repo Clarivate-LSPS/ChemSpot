@@ -157,8 +157,12 @@ public class Normalizer extends JCasAnnotator_ImplBase {
     }
     
     public static Map<String, String[]> readIdsFile(InputStream in) throws IOException {
-    	Map<String, String[]> result = new HashMap<String, String[]>();
-    	
+		Map<String, String[]> result = new HashMap<String, String[]>();
+		readIdsFileTo(in, result);
+		return result;
+	}
+
+	public static void readIdsFileTo(InputStream in, Map<String, String[]> result) throws IOException {
     	Map<String, List<String>> normalizedChems = new HashMap<String, List<String>>();
     	
     	BufferedReader reader = new BufferedReader(new InputStreamReader(in));
@@ -187,8 +191,6 @@ public class Normalizer extends JCasAnnotator_ImplBase {
             
             line = reader.readLine();
         }
-        
-        return result;
     }
     
     public static Map<String, String[]> loadIdsFromFile(String file) throws IOException {
@@ -202,12 +204,12 @@ public class Normalizer extends JCasAnnotator_ImplBase {
                 ZipEntry entry = entries.nextElement();
                 
                 InputStream in = zipFile.getInputStream(entry);
-                ids.putAll(readIdsFile(in));
+				readIdsFileTo(in, ids);
                 in.close();
             }
         } else {
         	InputStream in = new FileInputStream(file);
-        	ids.putAll(readIdsFile(in));
+			readIdsFileTo(in, ids);
         	in.close();
         }
         
@@ -269,12 +271,12 @@ public class Normalizer extends JCasAnnotator_ImplBase {
                     if (entry.getName().contains("normalized")) {
                     	if (ChemSpotConfiguration.useComponent(Component.CHEMHITS)) {
 	                    	System.out.print("  Loading ChemHits normalized ids... ");
-	                    	normalizedIds.putAll(readIdsFile(in));
+							readIdsFileTo(in, normalizedIds);
 	                    	System.out.println("Done.");
                     	}
                     } else if (ChemSpotConfiguration.useComponent(Component.NORMALIZER)) {
                     	System.out.print("  Loading ids... ");
-                    	ids.putAll(readIdsFile(in));
+						readIdsFileTo(in, ids);
                     	System.out.println("Done.");
                     }
                     
