@@ -5,7 +5,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<groupId>de.berlin.hu</groupId>
 	<artifactId>chemspot</artifactId>
-	<version>1.4</version>
+	<version>1.4.1</version>
 	<packaging>jar</packaging>
 
 
@@ -15,7 +15,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.package.data>../../data</project.package.data>
-        <uima.version>2.3.0-incubating</uima.version>
+	        <uima.version>2.3.1</uima.version>
 	</properties>
 
 	<dependencies>
@@ -269,50 +269,19 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 		</plugins>
 	</build>
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>scala</id>
-            <name>Scala Tools</name>
-            <url>http://scala-tools.org/repo-releases/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
-
 	<repositories>
-        <repository>
-            <id>project-libs</id>
-            <url>file://${basedir}/lib</url>
-        </repository>
-		<repository>
-			<id>uima</id>
-			<name>UIMA Incubating</name>
-			<layout>default</layout>
-			<url>http://people.apache.org/repo/m2-incubating-repository/</url>
-		</repository>
+        	<repository>
+            		<id>project-libs</id>
+  		        <url>file://${basedir}/lib</url>
+	        </repository>
 		<repository>
 			<id>OpenNLPRepository</id>
 			<url>http://opennlp.sourceforge.net/maven2</url>
 		</repository>
 		<repository>
-                <id>ucc-repo</id>
-                <url>http://maven.ch.cam.ac.uk/m2repo</url>
-        </repository>
-        <repository>
-              <id>scala</id>
-              <name>Scala Tools</name>
-              <url>http://scala-tools.org/repo-releases/</url>
-              <releases>
-                  <enabled>true</enabled>
-              </releases>
-              <snapshots>
-                  <enabled>false</enabled>
-              </snapshots>
-          </repository>
-	</repositories>
+                	<id>ucc-repo</id>
+                	<url>http://maven.ch.cam.ac.uk/m2repo</url>
+        	</repository>
+       	</repositories>
 </project>
 
